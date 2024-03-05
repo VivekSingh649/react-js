@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .container {
+        max-width: 800px;
+        padding: 25px;
+        background-color: #fafafa;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        margin-top: 300px;
+
+        .coulmn {
+            p {
+                font-size: 30px;
+                font-weight: 700;
+                text-align: center;
+            }
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .left-arrow,
+            .right-arrow {
+                max-width: 50px;
+                background-color: #fff;
+                padding: 15px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    #root {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #fafafa;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+    }
+
+    .btns_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px;
+        background-color: #fff;
+        border-radius: 10px;
+        margin: 50px auto;
+        width: 70%;
+    }
+
+    .btn {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        cursor: pointer;
+        background-color: red;
+        border-radius: 50%;
+        position: relative;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+</style>
+
+<body>
+    <div class="container" style="display: none;">
+        <div class="coulmn">
+            <p><span>10</span></p>
+            <p>Apples</p>
+        </div>
+        <div class="arrow">
+            <div class="left-arrow">
+                <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png">
+            </div>
+            <div class="right-arrow">
+                <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png">
+            </div>
+        </div>
+        <div class="coulmn">
+            <p><span>0</span></p>
+            <p>Apples</p>
+        </div>
+    </div>
+    <div id="root">
+        <div class="btns_wrapper"> </div>
+    </div>
+</body>
+
+<script>
+    const leftBtn = document.querySelector(".arrow .left-arrow");
+    const rightBtn = document.querySelector(".arrow .right-arrow");
+    let leftBasketApples = 10;
+    let rightBasketApples = 0;
+    const leftApplesElement = document.querySelectorAll(".coulmn span")[0];
+    const rightApplesElement = document.querySelectorAll(".coulmn span")[1];
+
+    leftBtn.addEventListener("click", () => {
+        if (rightBasketApples > 0) {
+            rightBasketApples--;
+            leftBasketApples++;
+            leftApplesElement.textContent = leftBasketApples;
+            rightApplesElement.textContent = rightBasketApples;
+        }
+    });
+
+    rightBtn.addEventListener("click", () => {
+        if (leftBasketApples > 0) {
+            leftBasketApples--;
+            rightBasketApples++;
+            leftApplesElement.textContent = leftBasketApples;
+            rightApplesElement.textContent = rightBasketApples;
+        }
+    });
+</script>
+<script>
+
+    const colors = ["FF6F61", "DAA520", "DA70D6", "87CEEB", "E6E6FA", "50C878", "40E0D0", "FFDAB9", "4169E1", "DC143C"];
+    let btnsWrapper = document.querySelector(".btns_wrapper");
+    const body = document.getElementById("root");
+
+    for (let color of colors) {
+
+        let btn = document.createElement("div");
+        btn.classList.add("btn");
+        btn.style.backgroundColor = "#" + color;
+        btnsWrapper.appendChild(btn);
+
+        btn.addEventListener("click", () => {
+            body.style.backgroundColor = "#" + color;
+        })
+    }
+
+</script>
+
+
+
+</html>
