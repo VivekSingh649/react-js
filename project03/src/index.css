@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #003566;
+}
+
+#root .container {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  select {
+    padding: 10px 15px;
+    background-color: #fff;
+    font-size: 20px;
+    outline: 0;
+    border: 0;
+    margin: 0 20px;
+  }
+}
